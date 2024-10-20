@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAI BANK LTD Registration</title>
+    <center>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            position: relative;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        .print-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #preview {
+            margin-top: 10px;
+        }
+        #preview img {
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="print-button" onclick="window.print()">Print</button>
+    </header>
+    
+    <h1>ZAYER HUSAIN</h1>
+    <h1>JAI BANK pvt.LTD Registration Form</h1>
+    
+    <form action="/submit_registration" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="fathersName">Father's Name:</label>
+        <input type="text" id="fathersName" name="fathersName" required><br><br>
+
+        <label for="mothersName">Mother's Name:</label>
+        <input type="text" id="mothersName" name="mothersName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="tel" id="mobileNumber" name="mobileNumber" required><br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="village">Village:</label>
+        <select id="village" name="village" required>
+            <option value="">Select Village</option>
+            <option value="Purainiya">Purainiya</option>
+            <option value="Sathiauta">Sathiauta</option>
+            <option value="Kowamohabatpur">Kowamohabatpur</option>
+            <option value="Rikhar">Rikhar</option>
+            <option value="Kanti">Kanti</option>
+            <option value="Pharpur">Pharpur</option>
+        </select><br><br>
+
+        <label for="postOffice">Post Office:</label>
+        <select id="Select Post Office" name="Select Post Office" required>
+        <option value="Select Branch">Select Post Office</option>
+            <option value="Purainiya001">Sathiauta844123</option>
+            <option value="lalganj">Lalganj844121</option>
+            <option value="vaishali">Rikhar844123</option>
+            <option value="patna">Patna 800001 Others</option>
+            <option value="hajipur">Hajipur Not Open</option></select><br><br>
+
+        <label for="bankBranch">Bank Branch:</label>
+        <select id="bankBranch" name="bankBranch" required>
+            <option value="Select Branch">Select Branch</option>
+            <option value="Purainiya001">Purainiya001</option>
+            <option value="lalganj">Lalganj003</option>
+            <option value="vaishali">Vaishali004</option>
+            <option value="patna">Patna005</option>
+            <option value="hajipur">Hajipur006</option>
+        </select><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+
+        <label for="nomineeName">Nominee Name:</label>
+        <input type="text" id="nomineeName" name="nomineeName" required><br><br>
+
+        <label for="accountType">Account Type:</label>
+        <select id="accountType" name="accountType" required>
+            <option value="current">Select Account Type</option>
+            <option value="savings">Savings Account</option>
+            <option value="current">Current Account</option>
+        </select><br><br>
+
+        <!-- Photo upload section -->
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
+        <!-- Document upload section -->
+        <label for="documents">Upload Documents:</label>
+        <input type="file" id="documents" name="documents" accept=".pdf,.doc,.docx,.jpg,.png" multiple><br><br>
+
+        <div id="preview">
+            <p>No image selected</p>
+        </div><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        const photoInput = document.getElementById('photo');
+        const preview = document.getElementById('preview');
+
+        photoInput.addEventListener('change', () => {
+            const file = photoInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(event) {
+                    const image = document.createElement('img');
+                    image.src = event.target.result;
+                    
+                    // Clear previous preview content
+                    preview.innerHTML = '';
+                    preview.appendChild(image);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.innerHTML = '<p>No image selected</p>';
+            }
+        });
+    </script>
+    </center>
+</body>
+</html>
